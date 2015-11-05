@@ -1,3 +1,6 @@
+[![godoc](https://godoc.org/github.com/pierrec/go-cuckoofilter?status.png)](https://godoc.org/github.com/pierrec/go-cuckoofilter)
+[![Build Status](https://travis-ci.org/pierrec/go-cuckoofilter.svg?branch=master)](https://travis-ci.org/pierrec/go-cuckoofilter)
+
 Package cuckoofilter implements the Cuckoo Filter algorithm for approximated
 set-membership queries. See https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf for the theory.
 
