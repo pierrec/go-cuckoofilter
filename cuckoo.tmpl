@@ -37,12 +37,12 @@ type fingerprint{{.Name}} uint{{.NumBitsFingerprintUint}}
 // 	return str + " }"
 // }
 
-// Filter represents a Cuckoo Filter with {{.Desc}} and an error rate of {{.ErrRate}}.
+// Filter{{.Name}} represents a Cuckoo Filter with {{.Desc}} and an error rate of {{.ErrRate}}.
 type Filter{{.Name}} struct {
 	f64 *Filter64{{.Name}}
 }
 
-// New creates a Filter containing up to n items with {{.Desc}} and an error rate of {{.ErrRate}}.
+// New{{.Name}} creates a Filter containing up to n items with {{.Desc}} and an error rate of {{.ErrRate}}.
 func New{{.Name}}(n uint) *Filter{{.Name}} {
 	return &Filter{{.Name}}{
 		f64: New64{{.Name}}(n),
@@ -92,7 +92,7 @@ func (cf *Filter{{.Name}}) Len() int { return cf.f64.Len() }
 // Cap returns the filter capacity.
 func (cf *Filter{{.Name}}) Cap() int { return cf.f64.Cap() }
 
-// Filter64 represents a Cuckoo Filter that only stores uint64 items
+// Filter64{{.Name}} represents a Cuckoo Filter that only stores uint64 items
 // and as such is much faster than Filter{{.Name}}.
 type Filter64{{.Name}} struct {
 	buckets []bucket{{.Name}}
@@ -100,7 +100,7 @@ type Filter64{{.Name}} struct {
 	max     int    // maximum number of relocations
 }
 
-// New64 creates a Filter64{{.Name}} containing up to n uint64 items.
+// New64{{.Name}} creates a Filter64{{.Name}} containing up to n uint64 items.
 // A Filter64{{.Name}} contains a minimum of 2 items.
 func New64{{.Name}}(n uint) *Filter64{{.Name}} {
 	// each bucket holds bucketBitsNum/fpBitsNum fingerprint entries

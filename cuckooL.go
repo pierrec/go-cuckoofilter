@@ -37,12 +37,12 @@ type fingerprintL uint16
 // 	return str + " }"
 // }
 
-// Filter represents a Cuckoo Filter with 4 bytes per item and an error rate of 0.005.
+// FilterL represents a Cuckoo Filter with 4 bytes per item and an error rate of 0.005.
 type FilterL struct {
 	f64 *Filter64L
 }
 
-// New creates a Filter containing up to n items with 4 bytes per item and an error rate of 0.005.
+// NewL creates a Filter containing up to n items with 4 bytes per item and an error rate of 0.005.
 func NewL(n uint) *FilterL {
 	return &FilterL{
 		f64: New64L(n),
@@ -92,7 +92,7 @@ func (cf *FilterL) Len() int { return cf.f64.Len() }
 // Cap returns the filter capacity.
 func (cf *FilterL) Cap() int { return cf.f64.Cap() }
 
-// Filter64 represents a Cuckoo Filter that only stores uint64 items
+// Filter64L represents a Cuckoo Filter that only stores uint64 items
 // and as such is much faster than FilterL.
 type Filter64L struct {
 	buckets []bucketL
@@ -100,7 +100,7 @@ type Filter64L struct {
 	max     int    // maximum number of relocations
 }
 
-// New64 creates a Filter64L containing up to n uint64 items.
+// New64L creates a Filter64L containing up to n uint64 items.
 // A Filter64L contains a minimum of 2 items.
 func New64L(n uint) *Filter64L {
 	// each bucket holds bucketBitsNum/fpBitsNum fingerprint entries
