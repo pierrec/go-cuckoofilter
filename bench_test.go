@@ -20,7 +20,7 @@ func BenchmarkExt1Insert(b *testing.B) {
 
 func BenchmarkExt1Has(b *testing.B) {
 	f := *fullFilter2
-	j, n := 0, int(f.GetCount())
+	j, n := 0, int(f.Count())
 	for i := 0; i < b.N; i++ {
 		f.Lookup(data[j])
 		if j++; j == n {
